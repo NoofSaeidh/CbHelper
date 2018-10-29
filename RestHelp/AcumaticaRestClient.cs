@@ -27,14 +27,15 @@ namespace RestHelp
                 new HttpClientHandler
                 {
                     UseCookies = true,
-                    CookieContainer = new CookieContainer()
+                    CookieContainer = new CookieContainer(),
                 })
             {
                 BaseAddress = new Uri(_endpointInfo.BaseUrl + $"/entity/{endpointInfo.Name}/{endpointInfo.Version}/"),
                 DefaultRequestHeaders =
                 {
                     Accept = { MediaTypeWithQualityHeaderValue.Parse("text/json") }
-                }
+                },
+                Timeout = TimeSpan.FromHours(1)
             };
         }
 

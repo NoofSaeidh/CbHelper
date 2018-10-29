@@ -64,6 +64,17 @@ namespace SoapHelp
             public static implicit operator StringValue(string value) => new StringValue { Value = value };
         }
 
+        public partial class IntValue
+        {
+            public static implicit operator IntValue(int value) => new IntValue { Value = value };
+        }
+
+        public partial class DateTimeValue
+        {
+            public static implicit operator DateTimeValue(DateTime? value) => new DateTimeValue { Value = value };
+        }
+
+
         public partial class DefaultSoapClient
         {
             public T Put<T>(T entity) where T : Entity
